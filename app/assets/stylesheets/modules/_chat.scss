@@ -4,6 +4,7 @@
     box-sizing: border-box;
     height: 100px;
     padding: 0 40px;
+    border-bottom: solid 1px #eee;
     .left-header {
       float: left;
       &__title {
@@ -72,7 +73,8 @@
       border: none;
       float: left;
       height: 50px;
-      width: calc(100% - 150px);
+      width: calc(100% - 160px);
+      padding-left: 10px;
     }
     &__mask {
       background-color: $white;
