@@ -1,13 +1,13 @@
 class UsersController < ApplicationController
-  
-  def edit
-  end
 
   def index
     resond_to do |format|
       format.html
       format.json
     end
+  end
+
+  def edit
   end
 
   def update
