@@ -1,8 +1,8 @@
 $(function(){ 
     function buildHTML(message){
-      var addimage = ( message.image !== null ) ? `<img class = class: "lower-message__image", src="${message.image}">` : ''
+      var addimage = ( message.image.url !== null ) ? `<img class = class: "lower-message__image", src="${message.image.url}">` : ''
         var html =
-          `<div class="message" data-message-id=${message.id}>
+          `<div class="message" data-message-id="${message.id}">
             <div class="upper-message">
                <div class="upper-message__user-name">
                  ${message.user_name}
@@ -15,8 +15,8 @@ $(function(){
               <p class="lower-message__content">
                 ${message.content}
               </p>
+              ${addimage}
             </div>
-            ${addimage}
           </div>`
         return html;
       } 
@@ -43,4 +43,21 @@ $('#new_message.new_message').on('submit', function(e){
       });
       return false;
 })
+
+    var reloadMessages = function() {
+      last_message_id = $('.message:last').data("message-id"); 
+
+      $.ajax({
+        url: "api/messages",
+        type: 'get',
+        dataType: 'json',
+        data: {last_id: last_message_id}
+      })
+      .done(function(messages) {
+        console.log('success');
+      })
+      .fail(function() {
+        console.log('error');
+      });
+    };
 });
