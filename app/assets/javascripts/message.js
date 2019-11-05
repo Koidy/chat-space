@@ -65,4 +65,5 @@ $('#new_message.new_message').on('submit', function(e){
         console.log('error');
       });
     };
+    setInterval(reloadMessages, 5000);
 });
