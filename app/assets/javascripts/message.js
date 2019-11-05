@@ -60,6 +60,7 @@ $('#new_message.new_message').on('submit', function(e){
           insertHTML = buildHTML(message);
           $('.messages').append(insertHTML);
         })
+        $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
       })
       .fail(function() {
         console.log('error');
