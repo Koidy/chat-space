@@ -45,6 +45,7 @@ $('#new_message.new_message').on('submit', function(e){
 })
 
     var reloadMessages = function() {
+      
       last_message_id = $('.message:last').data("message-id"); 
 
       $.ajax({
@@ -54,7 +55,11 @@ $('#new_message.new_message').on('submit', function(e){
         data: {last_id: last_message_id}
       })
       .done(function(messages) {
-        console.log('success');
+        var insertHTML = '';
+        messages.forEach(function(message) {
+          insertHTML = buildHTML(message);
+          $('.messages').append(insertHTML);
+        })
       })
       .fail(function() {
         console.log('error');
