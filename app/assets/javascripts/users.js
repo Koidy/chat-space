@@ -11,9 +11,9 @@ $(function() {
 
   function addNoUser(){
     let html = `
-      <div class="chat-group-user cleafix">
+      <div class="chat-group-user clearfix">
         <p class="chat-group-user__name">ユーザーがみつかりません</p>
-      <div>
+      </div>
     `;
     $("#user-search-result").append(html);
   }
