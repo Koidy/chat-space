@@ -1,6 +1,6 @@
 $(function(){ 
     function buildHTML(message){
-      var addimage = ( message.image.url !== null ) ? `<img class = class: "lower-message__image", src="${message.image.url}">` : ''
+      var addimage = ( message.image.url !== null ) ? `<img class ="lower-message__image", src="${message.image.url}">` : ''
         var html =
           `<div class="message" data-message-id="${message.id}">
             <div class="upper-message">
@@ -20,7 +20,7 @@ $(function(){
           </div>`
         return html;
       } 
-$('#new_message.new_message').on('submit', function(e){
+  $('#new_message.new_message').on('submit', function(e){
       e.preventDefault();
       var formData = new FormData(this);
       var url = $(this).attr('action')
@@ -42,7 +42,7 @@ $('#new_message.new_message').on('submit', function(e){
         alert("メッセージ送信に失敗しました");
       });
       return false;
-})
+  })
 
     var reloadMessages = function() {
       if (window.location.href.match(/\/groups\/\d+\/messages/)){
@@ -50,9 +50,9 @@ $('#new_message.new_message').on('submit', function(e){
 
         $.ajax({
           url: "api/messages",
-          type: 'get',
+          type: 'GET',
           dataType: 'json',
-          data: {last_id: last_message_id}
+          data: {id: last_message_id}
         })
         .done(function(messages) {
           var insertHTML = '';
